@@ -883,10 +883,10 @@ receipt-tracker/
 
 | # | 작업 | 산출물 | 우선도 |
 |---|------|--------|--------|
-| 1-1 | GitHub 레포지토리 생성 및 `.gitignore` 설정 | `receipt-tracker` 레포 | Must |
+| 1-1 ✅ | GitHub 레포지토리 생성 및 `.gitignore` 설정 | `receipt-tracker` 레포 | Must |
 | 1-2 | 프로젝트 디렉토리 구조 생성 | `backend/`, `frontend/` 폴더 | Must |
 | 1-3 | `.env` 파일 생성 및 `UPSTAGE_API_KEY` 등록 | `.env`, `.env.example` | Must |
-| 1-4 | Python 가상환경 생성 및 패키지 설치 | `venv/`, `requirements.txt` | Must |
+| 1-4 ✅ | Python 가상환경 생성 및 패키지 설치 | `venv/`, `requirements.txt` | Must |
 
 #### requirements.txt
 
@@ -894,9 +894,9 @@ receipt-tracker/
 fastapi==0.111.0
 uvicorn[standard]==0.29.0
 python-multipart==0.0.9
-langchain==0.2.0
-langchain-upstage==0.1.0
-pillow==10.3.0
+langchain==1.2.15
+langchain-upstage==0.7.7
+pillow>=12.0.0
 pdf2image==1.17.0
 python-dotenv==1.0.1
 ```
