@@ -1,5 +1,9 @@
 import os
+import sys
 from pathlib import Path
+
+# uvicorn backend.main:app 으로 실행 시 backend/ 를 모듈 검색 경로에 추가
+sys.path.insert(0, str(Path(__file__).parent))
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
@@ -28,11 +32,12 @@ if not DATA_FILE.exists():
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text("[]", encoding="utf-8")
 
-# 라우터 등록 (Phase 2-3에서 구현)
-# from routers import upload, expenses, summary
-# app.include_router(upload.router, prefix="/api")
-# app.include_router(expenses.router, prefix="/api")
-# app.include_router(summary.router, prefix="/api")
+# 라우터 등록
+from routers import upload, expenses, summary
+
+app.include_router(upload.router, prefix="/api")
+app.include_router(expenses.router, prefix="/api")
+app.include_router(summary.router, prefix="/api")
 
 
 @app.get("/api/health")

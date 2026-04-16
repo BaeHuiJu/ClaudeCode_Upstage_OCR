@@ -914,7 +914,7 @@ python-dotenv==1.0.1
 
 | # | 작업 | 내용 |
 |---|------|------|
-| 2-1-1 | FastAPI 앱 초기화 | CORS 설정, 라우터 등록, 정적 파일 서빙 |
+| 2-1-1 ✅ | FastAPI 앱 초기화 | CORS 설정, 라우터 등록, 정적 파일 서빙 |
 | 2-1-2 | `backend/data/expenses.json` 초기 파일 생성 | 빈 배열 `[]` 저장 |
 | 2-1-3 | `uploads/` 디렉토리 자동 생성 로직 | 업로드 파일 임시 저장 경로 |
 
@@ -935,7 +935,7 @@ app.include_router(summary.router, prefix="/api")
 
 | # | 작업 | 내용 |
 |---|------|------|
-| 2-2-1 | `load_expenses()` 함수 | `expenses.json` 읽기 → 리스트 반환 |
+| 2-2-1 ✅ | `load_expenses()` 함수 | `expenses.json` 읽기 → 리스트 반환 |
 | 2-2-2 | `save_expenses(data)` 함수 | 리스트 → `expenses.json` 쓰기 |
 | 2-2-3 | `append_expense(item)` 함수 | UUID 생성 후 리스트에 추가 저장 |
 
@@ -943,7 +943,7 @@ app.include_router(summary.router, prefix="/api")
 
 | # | 작업 | 내용 |
 |---|------|------|
-| 2-3-1 | 이미지 전처리 함수 | JPG/PNG → Base64, PDF → 이미지 변환 후 Base64 |
+| 2-3-1 ✅ | 이미지 전처리 함수 | JPG/PNG → Base64, PDF → 이미지 변환 후 Base64 |
 | 2-3-2 | LangChain Chain 구성 | `ChatUpstage` + `PromptTemplate` + `JsonOutputParser` |
 | 2-3-3 | 시스템 프롬프트 작성 | JSON 스키마 명시, 한국어/영어 영수증 파싱 지시 |
 | 2-3-4 | `parse_receipt(file_bytes, content_type)` 함수 | 전처리 → LLM 호출 → JSON 반환 |
@@ -973,7 +973,7 @@ SYSTEM_PROMPT = """
 
 | # | 작업 | 내용 |
 |---|------|------|
-| 2-4-1 | `POST /api/upload` 엔드포인트 | `UploadFile` 수신, 형식/크기 검증 |
+| 2-4-1 ✅ | `POST /api/upload` 엔드포인트 | `UploadFile` 수신, 형식/크기 검증 |
 | 2-4-2 | 파일 검증 로직 | 허용 MIME 타입 체크, 10MB 초과 차단 |
 | 2-4-3 | OCR 서비스 호출 및 응답 | `parse_receipt()` → UUID 부여 → JSON 반환 |
 | 2-4-4 | 오류 처리 | 400 (파일 오류), 500 (OCR 실패) HTTPException |
